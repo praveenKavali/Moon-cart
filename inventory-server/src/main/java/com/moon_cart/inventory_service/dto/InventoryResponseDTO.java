@@ -1,6 +1,5 @@
 package com.moon_cart.inventory_service.dto;
 
-import com.moon_cart.inventory_service.model.Category;
 import lombok.*;
 
 import java.time.Instant;
@@ -16,5 +15,5 @@ public class InventoryResponseDTO {
     private String skuCode;
     private int quantity;
     private Instant timeStamp;
-    private Category categories;
+    private String categories;
 }

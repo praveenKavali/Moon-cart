@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/inventory/api")
+@RequestMapping("/api/inventory")
 @RequiredArgsConstructor
 public class InventoryController {
 
@@ -26,7 +26,7 @@ public class InventoryController {
      * @param request contains the {@link StockUpdateRequest} information, it contains sku-code and quantity number.
      * @return {@link Boolean} response.*/
     @GetMapping
-    public ResponseEntity<Boolean> isInStock(StockUpdateRequest request) {
+    public ResponseEntity<Boolean> isInStock(@RequestBody StockUpdateRequest request) {
         return ResponseEntity.ok(service.isInStock(request.skuCode(), request.quantity()));
     }
 
@@ -36,7 +36,7 @@ public class InventoryController {
      * @param request contains the {@link StockUpdateRequest} information, it contains sku-code and quantity number.
      * @return {@link String} message.*/
     @PatchMapping("/orderPlaced")
-    public ResponseEntity<String> reduceStock (StockUpdateRequest request) {
+    public ResponseEntity<String> reduceStock (@RequestBody StockUpdateRequest request) {
         service.reduceStock(request.skuCode(), request.quantity());
         return ResponseEntity.status(HttpStatus.OK).body("Stock has been reduced");
     }
@@ -66,7 +66,7 @@ public class InventoryController {
      * @param request contains the {@link StockUpdateRequest} information, it contains sku-code and quantity number.
      * @return {@link InventoryResponseDTO}*/
     @PatchMapping("/update")
-    public ResponseEntity<InventoryResponseDTO> addQuantity (StockUpdateRequest request) {
+    public ResponseEntity<InventoryResponseDTO> addQuantity (@RequestBody StockUpdateRequest request) {
         return ResponseEntity.status(HttpStatus.OK).body(service.updateQuantity(request.skuCode(), request.quantity()));
     }
 }

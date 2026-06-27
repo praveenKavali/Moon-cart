@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: discovery-service
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #It is service so, we don't want to register it as client
+    register-with-eureka: false
+    fetch-registry: false
+server:
+  port: 8761

@@ -1,6 +1,5 @@
 package com.moon_cart.inventory_service.dto;
 
-import com.moon_cart.inventory_service.model.Category;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -19,5 +18,5 @@ public class InventoryRequestDTO {
     @Min(value = 1)
     private int quantity;
     private Instant timeStamp;
-    private Category categories;
+    private String categories;
 }

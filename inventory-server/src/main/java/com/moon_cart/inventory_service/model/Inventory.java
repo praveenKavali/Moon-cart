@@ -22,5 +22,5 @@ public class Inventory {
     @Field(name = "LastUpdatedAt")
     private Instant timeStamp;
     @Field(name = "item_category")
-    private Category categories;
+    private String categories;
 }

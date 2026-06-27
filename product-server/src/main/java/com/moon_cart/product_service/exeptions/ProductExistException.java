@@ -1,4 +1,7 @@
-package com.moon_cart.product_service.exeption;
+package com.moon_cart.product_service.exeptions;
 
-public class ProductExistException {
+public class ProductExistException extends ProductException{
+    public ProductExistException(String message, String errorCode, int statusCode) {
+        super(message, errorCode, statusCode);
+    }
 }
